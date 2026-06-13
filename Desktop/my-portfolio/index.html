@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puneeth J | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="cursor-glow"></div>
+
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="loader-initials">PJ</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="logo">
+      Puneeth J
+      <span class="available-badge"><span class="pulse-dot"></span>Available for work</span>
+    </div>
+    <ul id="nav-links">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <!-- Dark/Light toggle -->
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <i class="fa-solid fa-moon" id="theme-icon"></i>
+      </button>
+      <!-- Hamburger -->
+      <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#home" class="mobile-link">Home</a></li>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#projects" class="mobile-link">Projects</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="home">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <h1>Hi, I'm <span id="typed-name" class="gradient-name"></span></h1>
+      <p>I'm a <span id="role-text"></span></p>
+      <div class="hero-btns">
+        <a href="#projects" class="cta-btn">View My Work</a>
+        <a href="#contact" class="cta-btn-outline">Hire Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Strip -->
+  <div class="stats-strip">
+    <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">Projects</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><span class="stat-num">1</span><span class="stat-label">Internship</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><span class="stat-num">2+</span><span class="stat-label">Years Learning</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><span class="stat-num">5</span><span class="stat-label">Skills</span></div>
+  </div>
+
+  <!-- About Section -->
+  <section id="about" class="fade-up">
+    <div class="section-number">01</div>
+    <h2>About Me</h2>
+    <div class="about-content">
+      <!-- Profile Avatar -->
+      <div class="avatar-wrapper">
+        <div class="avatar-circle">PJ</div>
+      </div>
+      <div class="about-text">
+        <p>Hi! I'm Puneeth J, a passionate web developer and intern at Pinnacle Labs. I love building clean, beautiful, and user-friendly websites.</p>
+        <div class="skills">
+          <div class="skill-item">
+            <div class="skill-label"><span>HTML</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>CSS</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>JavaScript</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Web Design</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>Responsive Design</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          </div>
+        </div>
+        <!-- Skill tags -->
+        <div class="skill-tags">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Web Design</span><span>Responsive Design</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline">
+      <h3 class="timeline-title">My Journey</h3>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">2026</span>
+          <h4>Intern — Pinnacle Labs</h4>
+          <p>Building real-world web projects and sharpening my dev skills.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">2025</span>
+          <h4>Joined SRM — CSE Core</h4>
+          <p>Enrolled at SRM University as a Computer Science & Engineering student and started learning HTML & CSS.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">2023</span>
+          <h4>Discovered Design</h4>
+          <p>Fell in love with UI/UX — started creating clean, modern interfaces.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Divider -->
+  <div class="section-divider"></div>
+
+  <!-- Projects Section -->
+  <section id="projects" class="fade-up">
+    <div class="section-number">02</div>
+    <h2>My Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card stagger-card">
+        <h3>Portfolio Website</h3>
+        <p>A personal portfolio website built with HTML, CSS and JavaScript to showcase my skills and projects.</p>
+        <div class="project-tags">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span>
+        </div>
+        <a href="#" class="view-project-btn" target="_blank">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+      <div class="project-card stagger-card">
+        <h3>To-Do List App</h3>
+        <p>A fully functional productivity app with task management, categories, and local storage support.</p>
+        <div class="project-tags">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span>
+        </div>
+        <a href="#" class="view-project-btn" target="_blank">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+      <div class="project-card stagger-card">
+        <h3>Event Organizer Website</h3>
+        <p>A multi-page event management website with listings, booking, search and filter features.</p>
+        <div class="project-tags">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span>
+        </div>
+        <a href="#" class="view-project-btn" target="_blank">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Divider -->
+  <div class="section-divider"></div>
+
+  <!-- Contact Section -->
+  <section id="contact" class="fade-up">
+    <div class="section-number">03</div>
+    <h2>Contact Me</h2>
+    <div class="contact-form">
+      <div class="input-group">
+        <input type="text" id="name" placeholder="Your Name" />
+        <span class="error-msg" id="name-error">Please enter your name.</span>
+      </div>
+      <div class="input-group">
+        <input type="email" id="email" placeholder="Your Email" />
+        <span class="error-msg" id="email-error">Please enter a valid email.</span>
+      </div>
+      <div class="input-group">
+        <textarea id="message" placeholder="Your Message" rows="6"></textarea>
+        <span class="error-msg" id="message-error">Please enter a message.</span>
+      </div>
+      <button type="button" id="send-btn">Send Message</button>
+      <div class="success-msg" id="success-msg">✅ Message sent successfully!</div>
+    </div>
+  </section>
+
+  <button id="backToTop" aria-label="Back to top">↑</button>
+
+  <footer>
+    <p>Designed & Built by <span>Puneeth J</span></p>
+    <div class="social-links">
+      <a href="https://github.com/" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="mailto:puneeth@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+    <p>© 2026 All Rights Reserved</p>
+  </footer>
+
+<script>
+// ── LOADER ──
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  const fill = document.querySelector('.loader-fill');
+  fill.style.width = '100%';
+  setTimeout(() => {
+    loader.classList.add('hidden');
+  }, 1200);
+});
+
+// ── CURSOR GLOW ──
+const cursor = document.getElementById('cursor-glow');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+// ── SCROLL PROGRESS ──
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = (scrollTop / docHeight) * 100;
+  document.getElementById('scroll-progress').style.width = pct + '%';
+
+  // Navbar
+  document.getElementById('navbar').classList.toggle('scrolled', scrollTop > 50);
+  // Back to top
+  document.getElementById('backToTop').classList.toggle('show', scrollTop > 300);
+
+  // Active nav
+  let current = '';
+  document.querySelectorAll('section[id]').forEach(s => {
+    if (scrollTop >= s.offsetTop - 120) current = s.id;
+  });
+  document.querySelectorAll('.nav-link').forEach(l => {
+    l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+  });
+});
+
+// ── THEME TOGGLE ──
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+let isDark = true;
+themeToggle.addEventListener('click', () => {
+  isDark = !isDark;
+  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  themeIcon.className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+});
+
+// ── HAMBURGER ──
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+hamburger.addEventListener('keydown', e => { if (e.key === 'Enter') hamburger.click(); });
+document.querySelectorAll('.mobile-link').forEach(l => {
+  l.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  });
+});
+
+// ── BACK TO TOP ──
+document.getElementById('backToTop').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ── TYPEWRITER NAME ──
+const fullName = "Puneeth J";
+let ni = 0;
+function typeName() {
+  if (ni < fullName.length) {
+    document.getElementById("typed-name").innerHTML += fullName.charAt(ni++);
+    setTimeout(typeName, 100);
+  }
+}
+typeName();
+
+// ── ROTATING SUBTITLE ──
+const roles = ["Web Developer", "UI Designer", "Problem Solver", "Creative Coder", "A Creator"];
+let roleIndex = 0, charIndex = 0, isDeleting = false;
+const roleEl = document.getElementById("role-text");
+function typeRole() {
+  const current = roles[roleIndex];
+  roleEl.textContent = isDeleting
+    ? current.substring(0, charIndex--)
+    : current.substring(0, charIndex++);
+  let delay = isDeleting ? 60 : 100;
+  if (!isDeleting && charIndex === current.length + 1) { delay = 1800; isDeleting = true; }
+  else if (isDeleting && charIndex === 0) { isDeleting = false; roleIndex = (roleIndex + 1) % roles.length; delay = 400; }
+  setTimeout(typeRole, delay);
+}
+setTimeout(typeRole, 1500);
+
+// ── FADE UP + SKILL BARS ──
+let skillsAnimated = false;
+function animateSkills() {
+  if (skillsAnimated) return;
+  skillsAnimated = true;
+  document.querySelectorAll('.skill-fill').forEach(bar => {
+    setTimeout(() => { bar.style.width = bar.getAttribute('data-width') + '%'; }, 200);
+  });
+}
+
+// ── STAGGERED PROJECT CARDS ──
+function animateCards() {
+  document.querySelectorAll('.stagger-card').forEach((card, i) => {
+    setTimeout(() => card.classList.add('card-visible'), i * 150);
+  });
+}
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      if (entry.target.id === 'about') animateSkills();
+      if (entry.target.id === 'projects') animateCards();
+    } else {
+      entry.target.classList.remove('visible');
+    }
+  });
+}, { threshold: 0, rootMargin: "0px 0px -80px 0px" });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ── 3D CARD TILT ──
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    card.style.transform = `perspective(600px) rotateY(${x / 20}deg) rotateX(${-y / 20}deg) translateY(-8px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(600px) rotateY(0) rotateX(0) translateY(0)';
+  });
+});
+
+// ── CONTACT FORM ──
+document.getElementById('send-btn').addEventListener('click', () => {
+  const nameVal = document.getElementById('name').value.trim();
+  const emailVal = document.getElementById('email').value.trim();
+  const msgVal = document.getElementById('message').value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let valid = true;
+  document.getElementById('name-error').classList.toggle('show', !nameVal); if (!nameVal) valid = false;
+  const emailInvalid = !emailVal || !emailRegex.test(emailVal);
+  document.getElementById('email-error').classList.toggle('show', emailInvalid); if (emailInvalid) valid = false;
+  document.getElementById('message-error').classList.toggle('show', !msgVal); if (!msgVal) valid = false;
+  if (valid) {
+    document.getElementById('success-msg').classList.add('show');
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('message').value = '';
+    setTimeout(() => document.getElementById('success-msg').classList.remove('show'), 4000);
+  }
+});
+
+// ── PARTICLES ──
+const canvas = document.getElementById('particles-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+for (let i = 0; i < 55; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.5 + 0.5,
+    dx: (Math.random() - 0.5) * 0.4,
+    dy: (Math.random() - 0.5) * 0.4,
+    o: Math.random() * 0.5 + 0.1
+  });
+}
+function drawParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(0,217,255,${p.o})`;
+    ctx.fill();
+    p.x += p.dx; p.y += p.dy;
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+  });
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+</script>
+</body>
+</html>
