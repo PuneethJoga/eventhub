@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventHub | Contact</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <div class="logo">
+    <i class="fa-solid fa-calendar-days"></i> EventHub
+  </div>
+  <ul id="nav-links">
+    <li><a href="index.html" class="nav-link">Home</a></li>
+    <li><a href="events.html" class="nav-link">Events</a></li>
+    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+    <li><a href="my-events.html" class="nav-link">My Events</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-bell" id="nav-bell" aria-label="Notifications">
+      <i class="fa-solid fa-bell"></i>
+      <span class="bell-badge">3</span>
+    </button>
+    <button class="nav-login-btn" id="nav-login-btn">
+      <i class="fa-solid fa-user"></i> Login
+    </button>
+    <button id="theme-toggle" aria-label="Toggle theme">
+      <i class="fa-solid fa-moon" id="theme-icon"></i>
+    </button>
+    <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Notification Dropdown -->
+<div class="notif-dropdown" id="notif-dropdown">
+  <div class="notif-header">
+    <span>Notifications</span>
+    <button class="notif-clear">Mark all read</button>
+  </div>
+  <div class="notif-item unread">
+    <div class="notif-icon reg"><i class="fa-solid fa-user-plus"></i></div>
+    <div class="notif-text"><p>New registration for <strong>Web Dev Bootcamp</strong></p><span>2 hours ago</span></div>
+  </div>
+  <div class="notif-item unread">
+    <div class="notif-icon review"><i class="fa-solid fa-star"></i></div>
+    <div class="notif-text"><p>5-star review on <strong>JavaScript Fundamentals</strong></p><span>5 hours ago</span></div>
+  </div>
+  <div class="notif-item unread">
+    <div class="notif-icon reg"><i class="fa-solid fa-user-plus"></i></div>
+    <div class="notif-text"><p>3 new registrations for <strong>UI/UX Workshop</strong></p><span>1 day ago</span></div>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal-overlay" id="login-modal">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-logo"><i class="fa-solid fa-calendar-days"></i> EventHub</div>
+    <h2 class="modal-title">Welcome back</h2>
+    <p class="modal-sub">Sign in to manage your events</p>
+    <div class="modal-input-group">
+      <i class="fa-solid fa-envelope"></i>
+      <input type="email" placeholder="Email address">
+    </div>
+    <div class="modal-input-group">
+      <i class="fa-solid fa-lock"></i>
+      <input type="password" placeholder="Password">
+    </div>
+    <button class="modal-btn">Sign In</button>
+    <p class="modal-switch">Don't have an account? <a href="#">Sign up</a></p>
+  </div>
+</div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="index.html" class="mobile-link">Home</a></li>
+    <li><a href="events.html" class="mobile-link">Events</a></li>
+    <li><a href="dashboard.html" class="mobile-link">Dashboard</a></li>
+    <li><a href="contact.html" class="mobile-link">Contact</a></li>
+    <li><a href="my-events.html" class="mobile-link">My Events</a></li>
+  </ul>
+</div>
+
+<div id="scroll-progress"></div>
+
+<!-- Page Header -->
+<section id="page-header">
+  <h1>Get In Touch</h1>
+  <p>Have questions about an event or want to host your own? Reach out to us!</p>
+</section>
+
+<!-- Contact Content -->
+<section id="contact-content" class="fade-up">
+  <div class="contact-grid">
+    <div class="contact-form-wrapper">
+      <h2>Send us a Message</h2>
+      <form id="contact-form">
+        <div class="input-group">
+          <input type="text" id="contact-name" placeholder="Your Name" required>
+          <span class="error-msg" id="name-error">Please enter your name.</span>
+        </div>
+        <div class="input-group">
+          <input type="email" id="contact-email" placeholder="Your Email" required>
+          <span class="error-msg" id="email-error">Please enter a valid email.</span>
+        </div>
+        <div class="input-group">
+          <input type="text" id="contact-subject" placeholder="Subject" required>
+          <span class="error-msg" id="subject-error">Please enter a subject.</span>
+        </div>
+        <div class="input-group">
+          <textarea id="contact-message" placeholder="Your Message" rows="6" required></textarea>
+          <span class="error-msg" id="message-error">Please enter a message.</span>
+        </div>
+        <button type="submit" id="contact-send-btn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+        <div class="success-msg" id="contact-success">✅ Message sent successfully! We'll get back to you soon.</div>
+      </form>
+    </div>
+    <div class="contact-info">
+      <h2>Contact Information</h2>
+      <div class="info-card">
+        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <div>
+          <h4>Our Office</h4>
+          <p>123 Tech Park, Koramangala, Bangalore - 560034</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+        <div>
+          <h4>Phone</h4>
+          <p>+91 98765 43210</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+        <div>
+          <h4>Email</h4>
+          <p>hello@eventhub.com</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+        <div>
+          <h4>Working Hours</h4>
+          <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+        </div>
+      </div>
+      <div class="social-card">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://instagram.com" target="_blank" class="social-instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://twitter.com" target="_blank" class="social-twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://linkedin.com" target="_blank" class="social-linkedin"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://facebook.com" target="_blank" class="social-facebook"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="fade-up">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>How do I register for an event?</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        <p>Simply browse our Events page, click on any event that interests you, and fill out the RSVP form on the event details page. You'll receive a confirmation email instantly.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Can I host my own event on EventHub?</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        <p>Yes! Send us a message through the contact form above with your event details, and our team will get in touch to help you set it up.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Are there any cancellation fees?</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        <p>Most of our events are free to attend. For paid events, cancellation policies vary and are mentioned on each event's details page.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>How will I receive event updates?</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        <p>Once you RSVP, you'll receive email updates about any changes to the event schedule, venue, or important announcements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <i class="fa-solid fa-calendar-days"></i> EventHub
+      <p>Your one-stop platform for discovering and hosting amazing events.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="events.html">Events</a>
+      <a href="my-events.html">My Events</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://instagram.com" target="_blank" class="social-instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://twitter.com" target="_blank" class="social-twitter"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://linkedin.com" target="_blank" class="social-linkedin"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://facebook.com" target="_blank" class="social-facebook"><i class="fa-brands fa-facebook"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Designed & Built by <span>Puneeth J</span> | © 2026 EventHub. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<button id="backToTop" aria-label="Back to top">↑</button>
+<script src="script.js"></script>
+</body>
+</html>
