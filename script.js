@@ -90,14 +90,9 @@ async function loadEvents() {
     grid.innerHTML = events.map(event => {
       const cat = event.category?.toLowerCase() || 'tech';
       const date = new Date(event.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-      // Only override the category's background image if the event actually has one —
-      // otherwise an empty/missing image_url was blanking out the ${cat}-bg fallback.
-      const imgStyle = event.image_url
-        ? `style="background-image: url('${event.image_url}'); background-size: cover; background-position: center;"`
-        : '';
       return `
         <div class="event-card" data-category="${cat}" data-name="${event.title}">
-          <div class="event-image ${cat}-bg" ${imgStyle}>
+          <div class="event-image ${cat}-bg" data-image-url="${event.image_url || ''}">
             <span class="event-category">${event.category}</span>
             <button class="bookmark-btn" aria-label="Bookmark"><i class="fa-regular fa-bookmark"></i></button>
           </div>
@@ -110,6 +105,22 @@ async function loadEvents() {
         </div>
       `;
     }).join('');
+
+    // Preload each event's image; only apply it if it actually loads, otherwise
+    // leave the ${cat}-bg CSS fallback in place (protects against dead/404 URLs
+    // from the database, e.g. broken Unsplash links).
+    grid.querySelectorAll('.event-image[data-image-url]').forEach(el => {
+      const url = el.getAttribute('data-image-url');
+      if (!url) return;
+      const img = new Image();
+      img.onload = () => {
+        el.style.backgroundImage = `url('${url}')`;
+        el.style.backgroundSize = 'cover';
+        el.style.backgroundPosition = 'center';
+      };
+      img.onerror = () => console.warn(`Event image failed to load, using fallback: ${url}`);
+      img.src = url;
+    });
 
     // Re-run filter after loading
     if (typeof filterEvents === 'function') filterEvents();
