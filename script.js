@@ -90,9 +90,14 @@ async function loadEvents() {
     grid.innerHTML = events.map(event => {
       const cat = event.category?.toLowerCase() || 'tech';
       const date = new Date(event.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      // Only override the category's background image if the event actually has one —
+      // otherwise an empty/missing image_url was blanking out the ${cat}-bg fallback.
+      const imgStyle = event.image_url
+        ? `style="background-image: url('${event.image_url}'); background-size: cover; background-position: center;"`
+        : '';
       return `
         <div class="event-card" data-category="${cat}" data-name="${event.title}">
-          <div class="event-image ${cat}-bg" style="background-image: url('${event.image_url}'); background-size: cover; background-position: center;">
+          <div class="event-image ${cat}-bg" ${imgStyle}>
             <span class="event-category">${event.category}</span>
             <button class="bookmark-btn" aria-label="Bookmark"><i class="fa-regular fa-bookmark"></i></button>
           </div>
@@ -683,12 +688,14 @@ if (heroSearchBtn) {
    EVENTS PAGE: FILTER + SEARCH
    ============================================ */
 const filterChips       = document.querySelectorAll('.filter-chip');
-const eventCards        = document.querySelectorAll('#events-grid .event-card');
 const eventsSearchInput = document.getElementById('search-input');
 const noResults         = document.getElementById('no-results');
 let activeCategory = 'all';
 
 function filterEvents() {
+  // Query fresh each call — cards are injected asynchronously by loadEvents(),
+  // so a snapshot taken at script-load time would always be empty.
+  const eventCards = document.querySelectorAll('#events-grid .event-card');
   if (!eventCards.length) return;
   const query = eventsSearchInput?.value.toLowerCase().trim() || '';
   let visible = 0;
@@ -957,11 +964,24 @@ async function loadEventDetails() {
     const date = document.querySelectorAll('.booking-detail-item')[0];
     const time = document.querySelectorAll('.booking-detail-item')[1];
     const location = document.querySelectorAll('.booking-detail-item')[2];
+    const categoryBadge = document.querySelector('.event-category-large');
+    const heroSection = document.getElementById('event-hero');
 
     if (title) title.textContent = event.title;
     if (date) date.innerHTML = `<i class="fa-solid fa-calendar"></i> ${new Date(event.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`;
     if (time) time.innerHTML = `<i class="fa-solid fa-clock"></i> ${event.time}`;
     if (location) location.innerHTML = `<i class="fa-solid fa-location-dot"></i> ${event.location}`;
+
+    // Update the category badge + hero background to match the real event
+    // (previously these stayed hardcoded to "Tech" / tech-bg-large no matter
+    // which event was opened, so every booking got saved as a Tech event)
+    const validCats = ['tech', 'music', 'sports', 'workshop', 'art', 'food'];
+    const cat = validCats.includes(event.category?.toLowerCase()) ? event.category.toLowerCase() : 'tech';
+    if (categoryBadge) categoryBadge.textContent = event.category || 'Tech';
+    if (heroSection) {
+      heroSection.className = heroSection.className.replace(/\b(tech|music|sports|workshop|art|food)-bg-large\b/, '').trim();
+      heroSection.classList.add(`${cat}-bg-large`);
+    }
 
     // Wire RSVP button
     const rsvpBtn = document.getElementById('rsvp-btn');

@@ -1080,7 +1080,12 @@ section h2::after {
   align-items: flex-end;
 }
 
-.tech-bg-large { background: linear-gradient(135deg, #0c4a6e, #00d9ff22); }
+.tech-bg-large     { background: linear-gradient(135deg, #0c4a6e, #00d9ff22); }
+.music-bg-large    { background: linear-gradient(135deg, #581c87, #d946ef22); }
+.sports-bg-large   { background: linear-gradient(135deg, #14532d, #22c55e22); }
+.workshop-bg-large { background: linear-gradient(135deg, #713f12, #f59e0b22); }
+.art-bg-large      { background: linear-gradient(135deg, #831843, #ec489922); }
+.food-bg-large     { background: linear-gradient(135deg, #7c2d12, #f9731622); }
 
 .event-hero-content {
   max-width: 1200px;
@@ -2213,6 +2218,10 @@ footer {
 
 .no-bookings p {
   font-size: 15px;
+}
+
+#booked-events-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 340px));
 }
 
 .booked-badge-chip {
