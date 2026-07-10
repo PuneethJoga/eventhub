@@ -299,7 +299,7 @@ function wireModal() {
   });
 
   /* SIGN IN */
-  document.getElementById('signin-btn')?.addEventListener('click', () => {
+  document.getElementById('signin-btn')?.addEventListener('click', async () => {
     const email = document.getElementById('signin-email').value.trim();
     const pass  = document.getElementById('signin-password').value;
     let ok = true;
@@ -315,9 +315,38 @@ function wireModal() {
     }
     if (!ok) return;
 
-    // simulate auth — accept any valid email + non-empty password
-    const initials = getInitials(email);
-    Auth.save({ email, initials, avatar: null });
+    // Actually authenticate against the backend (this used to just fake it
+    // with Auth.save() and never set the localStorage token that RSVP/booking
+    // checks for — that's why "logging in" here never let anyone book).
+    const signinBtn = document.getElementById('signin-btn');
+    signinBtn.disabled = true;
+    signinBtn.textContent = 'Signing in...';
+    try {
+      const res = await fetch('https://event-hub-zv4f.onrender.com/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password: pass })
+      });
+      const data = await res.json();
+      if (!data.token) {
+        showError('signin-pass-err', 'signin-pass-wrap', data.error || 'Invalid email or password.');
+        signinBtn.disabled = false;
+        signinBtn.textContent = 'Sign In';
+        return;
+      }
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
+
+      const initials = getInitials(data.user?.name || email);
+      Auth.save({ email, initials, avatar: null });
+    } catch (err) {
+      showError('signin-pass-err', 'signin-pass-wrap', 'Could not reach the server. Try again.');
+      signinBtn.disabled = false;
+      signinBtn.textContent = 'Sign In';
+      return;
+    }
+    signinBtn.disabled = false;
+    signinBtn.textContent = 'Sign In';
 
     // ask for avatar if signing in for first time
     const panel = document.getElementById('panel-avatar');
@@ -345,7 +374,7 @@ function wireModal() {
   });
 
   /* SIGN UP */
-  document.getElementById('signup-btn')?.addEventListener('click', () => {
+  document.getElementById('signup-btn')?.addEventListener('click', async () => {
     const name  = document.getElementById('signup-name').value.trim();
     const email = document.getElementById('signup-email').value.trim();
     const pass  = document.getElementById('signup-password').value;
@@ -367,6 +396,35 @@ function wireModal() {
       showError('signup-pass-err', 'signup-pass-wrap', 'Password must be at least 6 characters.'); ok = false;
     }
     if (!ok) return;
+
+    // Actually register against the backend instead of faking it, so the
+    // localStorage token RSVP/booking depends on actually gets set.
+    const signupBtn = document.getElementById('signup-btn');
+    signupBtn.disabled = true;
+    signupBtn.textContent = 'Creating account...';
+    try {
+      const res = await fetch('https://event-hub-zv4f.onrender.com/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password: pass })
+      });
+      const data = await res.json();
+      if (!data.token) {
+        showError('signup-email-err', 'signup-email-wrap', data.error || 'Could not create account.');
+        signupBtn.disabled = false;
+        signupBtn.textContent = 'Sign Up';
+        return;
+      }
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
+    } catch (err) {
+      showError('signup-email-err', 'signup-email-wrap', 'Could not reach the server. Try again.');
+      signupBtn.disabled = false;
+      signupBtn.textContent = 'Sign Up';
+      return;
+    }
+    signupBtn.disabled = false;
+    signupBtn.textContent = 'Sign Up';
 
     const initials = name ? getInitials(name) : getInitials(email);
     Auth.save({ email, name, initials, avatar: chip?.dataset.avatar || null });
@@ -488,6 +546,8 @@ function ensureUserMenu(user) {
 
   document.getElementById('um-logout')?.addEventListener('click', () => {
     Auth.clear();
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     menu.classList.remove('open');
     renderNavUser();
   });
