@@ -1073,6 +1073,24 @@ async function loadEventDetails() {
           document.getElementById('booking-success')?.classList.add('show');
           rsvpBtn.textContent = '✓ RSVPd!';
           rsvpBtn.disabled = true;
+
+          // Save locally too — this used to only happen via the booking-form's
+          // "submit" event, but calling e.preventDefault() above on the button's
+          // click stops that submit from ever firing, so My Events never saw it.
+          const tickets = parseInt(document.getElementById('booking-tickets')?.value || 1);
+          const name     = document.getElementById('booking-name')?.value.trim() || 'You';
+          const userObj  = JSON.parse(localStorage.getItem('user') || 'null');
+          Bookings.add({
+            eventName:     event.title,
+            eventDate:     new Date(event.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+            eventTime:     event.time,
+            eventLocation: event.location,
+            eventCategory: event.category || 'Tech',
+            eventBg:       cat,
+            tickets,
+            bookedBy:      name || userObj?.name || 'You',
+            bookedAt:      new Date().toISOString()
+          });
         } else {
           alert(data.error || 'Already RSVPd to this event!');
         }
