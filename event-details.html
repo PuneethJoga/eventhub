@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventHub | Event Details</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <div class="logo">
+    <i class="fa-solid fa-calendar-days"></i> EventHub
+  </div>
+  <ul id="nav-links">
+    <li><a href="index.html" class="nav-link">Home</a></li>
+    <li><a href="events.html" class="nav-link active">Events</a></li>
+    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+    <li><a href="contact.html" class="nav-link">Contact</a></li>
+    <li><a href="my-events.html" class="nav-link">My Events</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-bell" id="nav-bell" aria-label="Notifications">
+      <i class="fa-solid fa-bell"></i>
+      <span class="bell-badge">3</span>
+    </button>
+    <button class="nav-login-btn" id="nav-login-btn">
+      <i class="fa-solid fa-user"></i> Login
+    </button>
+    <button id="theme-toggle" aria-label="Toggle theme">
+      <i class="fa-solid fa-moon" id="theme-icon"></i>
+    </button>
+    <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Notification Dropdown -->
+<div class="notif-dropdown" id="notif-dropdown">
+  <div class="notif-header">
+    <span>Notifications</span>
+    <button class="notif-clear">Mark all read</button>
+  </div>
+  <div class="notif-item unread">
+    <div class="notif-icon reg"><i class="fa-solid fa-user-plus"></i></div>
+    <div class="notif-text"><p>New registration for <strong>Web Dev Bootcamp</strong></p><span>2 hours ago</span></div>
+  </div>
+  <div class="notif-item unread">
+    <div class="notif-icon review"><i class="fa-solid fa-star"></i></div>
+    <div class="notif-text"><p>5-star review on <strong>JavaScript Fundamentals</strong></p><span>5 hours ago</span></div>
+  </div>
+  <div class="notif-item unread">
+    <div class="notif-icon reg"><i class="fa-solid fa-user-plus"></i></div>
+    <div class="notif-text"><p>3 new registrations for <strong>UI/UX Workshop</strong></p><span>1 day ago</span></div>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal-overlay" id="login-modal">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-logo"><i class="fa-solid fa-calendar-days"></i> EventHub</div>
+    <h2 class="modal-title">Welcome back</h2>
+    <p class="modal-sub">Sign in to manage your events</p>
+    <div class="modal-input-group">
+      <i class="fa-solid fa-envelope"></i>
+      <input type="email" placeholder="Email address">
+    </div>
+    <div class="modal-input-group">
+      <i class="fa-solid fa-lock"></i>
+      <input type="password" placeholder="Password">
+    </div>
+    <button class="modal-btn">Sign In</button>
+    <p class="modal-switch">Don't have an account? <a href="#">Sign up</a></p>
+  </div>
+</div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="index.html" class="mobile-link">Home</a></li>
+    <li><a href="events.html" class="mobile-link">Events</a></li>
+    <li><a href="dashboard.html" class="mobile-link">Dashboard</a></li>
+    <li><a href="contact.html" class="mobile-link">Contact</a></li>
+    <li><a href="my-events.html" class="mobile-link">My Events</a></li>
+  </ul>
+</div>
+
+<div id="scroll-progress"></div>
+
+<!-- Event Hero Banner -->
+<section id="event-hero" class="tech-bg-large">
+  <div class="event-hero-content">
+    <span class="event-category-large">Tech</span>
+    <h1>Tech Innovators Summit 2026</h1>
+    <div class="event-meta">
+      <span><i class="fa-solid fa-calendar"></i> July 15, 2026</span>
+      <span><i class="fa-solid fa-clock"></i> 9:00 AM - 6:00 PM</span>
+      <span><i class="fa-solid fa-location-dot"></i> Bangalore Convention Center</span>
+    </div>
+  </div>
+</section>
+
+<!-- Event Details Content -->
+<section id="event-details" class="fade-up">
+  <div class="event-details-grid">
+    <div class="event-main">
+      <h2>About This Event</h2>
+      <p>Join us for the biggest tech gathering of the year! Tech Innovators Summit 2026 brings together industry leaders, startup founders, developers, and tech enthusiasts for a full day of inspiring talks, hands-on workshops, and networking opportunities.</p>
+      <p>Whether you're a student exploring tech careers, a developer looking to learn new skills, or an entrepreneur seeking inspiration — this event has something for everyone.</p>
+
+      <h2>Event Schedule</h2>
+      <div class="schedule-list">
+        <div class="schedule-item">
+          <span class="schedule-time">9:00 AM</span>
+          <div class="schedule-info">
+            <h4>Registration & Welcome Breakfast</h4>
+            <p>Check-in, grab your badge, and network over breakfast</p>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <span class="schedule-time">10:00 AM</span>
+          <div class="schedule-info">
+            <h4>Keynote: The Future of AI</h4>
+            <p>Opening keynote on emerging AI trends and opportunities</p>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <span class="schedule-time">12:00 PM</span>
+          <div class="schedule-info">
+            <h4>Lunch & Networking</h4>
+            <p>Connect with speakers and fellow attendees</p>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <span class="schedule-time">2:00 PM</span>
+          <div class="schedule-info">
+            <h4>Hands-on Workshops</h4>
+            <p>Choose from web dev, AI/ML, or cloud computing tracks</p>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <span class="schedule-time">5:00 PM</span>
+          <div class="schedule-info">
+            <h4>Closing Panel & Awards</h4>
+            <p>Wrap-up discussion and recognition of top projects</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>Speakers</h2>
+      <div class="speakers-grid">
+        <div class="speaker-card">
+          <div class="speaker-avatar">RK</div>
+          <h4>Rahul Kumar</h4>
+          <p>CTO, TechNova</p>
+        </div>
+        <div class="speaker-card">
+          <div class="speaker-avatar">AS</div>
+          <h4>Anita Sharma</h4>
+          <p>AI Researcher, DeepMind</p>
+        </div>
+        <div class="speaker-card">
+          <div class="speaker-avatar">VP</div>
+          <h4>Vikram Patel</h4>
+          <p>Founder, CloudStack</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="event-sidebar">
+      <div class="booking-card">
+        <h3>Reserve Your Spot</h3>
+        <div class="booking-price">
+          <span class="price-amount">Free</span>
+          <span class="price-label">Entry</span>
+        </div>
+        <div class="booking-details">
+          <div class="booking-detail-item"><i class="fa-solid fa-calendar"></i><span>July 15, 2026</span></div>
+          <div class="booking-detail-item"><i class="fa-solid fa-clock"></i><span>9:00 AM - 6:00 PM</span></div>
+          <div class="booking-detail-item"><i class="fa-solid fa-location-dot"></i><span>Bangalore Convention Center</span></div>
+          <div class="booking-detail-item"><i class="fa-solid fa-users"></i><span id="seats-left">250 seats left</span></div>
+        </div>
+        <form id="booking-form">
+          <div class="input-group"><input type="text" id="booking-name" placeholder="Your Name" required></div>
+          <div class="input-group"><input type="email" id="booking-email" placeholder="Your Email" required></div>
+          <div class="input-group"><input type="tel" id="booking-phone" placeholder="Phone Number" required></div>
+          <div class="input-group">
+            <select id="booking-tickets">
+              <option value="1">1 Ticket</option>
+              <option value="2">2 Tickets</option>
+              <option value="3">3 Tickets</option>
+              <option value="4">4 Tickets</option>
+            </select>
+          </div>
+          <button type="submit" id="rsvp-btn">RSVP Now <i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+        <div class="booking-success" id="booking-success">
+          <i class="fa-solid fa-circle-check"></i>
+          <p>You're registered! Check your email for confirmation.</p>
+        </div>
+      </div>
+      <div class="venue-card">
+        <h3>Venue Location</h3>
+        <div class="venue-map">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <p>Bangalore Convention Center, KR Road, Bangalore - 560027</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <i class="fa-solid fa-calendar-days"></i> EventHub
+      <p>Your one-stop platform for discovering and hosting amazing events.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="events.html">Events</a>
+      <a href="my-events.html">My Events</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://instagram.com" target="_blank" class="social-instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://twitter.com" target="_blank" class="social-twitter"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://linkedin.com" target="_blank" class="social-linkedin"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://facebook.com" target="_blank" class="social-facebook"><i class="fa-brands fa-facebook"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Designed & Built by <span>Puneeth J</span> | © 2026 EventHub. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<button id="backToTop" aria-label="Back to top">↑</button>
+<script src="script.js"></script>
+</body>
+</html>
